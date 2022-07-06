@@ -26,7 +26,8 @@ router.post("/login", (req, res, next) => {
         var token = jwt.sign(user, process.env.TOKEN_SECRET, { expiresIn: "10m" })
         return res.status(200).json({
             message: "Success",
-            data: token
+            token: token,
+            user: user,
         })
     }
 
